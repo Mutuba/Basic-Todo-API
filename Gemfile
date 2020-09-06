@@ -27,9 +27,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'rubocop', require: false
 
-gem 'coverband'
+# gem 'coverband'
 
-gem 'coveralls', require: false
+# gem 'coveralls', require: false
 
 gem 'simplecov', require: false, group: :test
 

@@ -5,6 +5,10 @@ rvm:
 
 services:
   - postgresql
+  - redis-server
+
+addons:
+  postgresql: '9.6'
 
 env:
   - TEST_DATABASE_USERNAME=postgres
@@ -16,11 +20,10 @@ before_install:
  - gem install bundler --no-document
 
 before_script:
+#   - psql -c "CREATE USER mutuba WITH PASSWORD 'mutuba';" -U postgres
   - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - bundle exec rake db:migrate
 
 script:
-  - bundle exec rake test
-  - bundle exec rubocop -D
-  - bundle exec rails_best_practices .
+  - bundle exec rails db:reset db:setup db:migrate RAILS_ENV=test
+  - bundle exec rspec

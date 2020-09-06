@@ -1,6 +1,7 @@
 language: ruby
-rbenv:
-  - 1.1.2
+
+rvv:
+  - 2.5.3
 
 services:
   - postgresql

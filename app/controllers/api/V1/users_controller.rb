@@ -1,5 +1,5 @@
 # app/controllers/users_controller.rb
-class UsersController < ApplicationController
+class Api::V1::UsersController < ApplicationController
   skip_before_action :authorize_request, only: :create
   # POST /signup
   # create a user, raise record invalid exception incase userparams are invalid
@@ -18,8 +18,7 @@ class UsersController < ApplicationController
     params.permit(
       :name,
       :email,
-      :password,
-      :password_confirmation
+      :password
     )
   end
 end

@@ -4,14 +4,14 @@ set -e
 rm -f /myapp/tmp/pids/server.pid
 
 
-echo 'Setting databse environment'
-bin/rails db:environment:set RAILS_ENV=development
+# echo 'Setting databse environment'
+# bin/rails db:environment:set RAILS_ENV=development
 
 # echo "dropping databse"
 # bin/rails db:drop
 
 # echo "Creating database if it's not present..."
-bin/rails db:create
+# bin/rails db:create
 
 # echo "Migrating database..."
 bin/rails db:migrate

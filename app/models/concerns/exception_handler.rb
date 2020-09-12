@@ -15,6 +15,7 @@ module ExceptionHandler
     rescue_from ExceptionHandler::MissingToken, with: :four_twenty_two
     rescue_from ExceptionHandler::InvalidToken, with: :four_twenty_two
 
+    # handle missing user params
     rescue_from ActionController::ParameterMissing do |e|
       json_response({ message: e.message }, :bad_request)
     end

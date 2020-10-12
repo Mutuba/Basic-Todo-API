@@ -1,56 +1,47 @@
 
-# default: &default
-#   adapter: postgresql
-#   host: localhost
-#   port: 5432
-#   encoding: utf8
-#   pool: 5
-#   database: rails-json-api
-# username: <%= ENV['DATABASE_USER'] %>
-# password: <%= ENV['DATABASE_PASSWORD'] %>
-
-# development: &default
-#   adapter: postgresql
-#   host: localhost
-#   port: 5432
-#   encoding: utf8
-#   pool: 5
-#   database: rails-json-api-dev
-# username: <%= ENV['DATABASE_USER'] %>
-# password: <%= ENV['DATABASE_PASSWORD'] %>
-
-
-# test: &default
-#   adapter: postgresql
-#   host: localhost
-#   port: 5432
-#   encoding: utf8
-#   pool: 5
-#   database: rails-json-api-test
-# username: <%= ENV['DATABASE_USER'] %>
-# password: <%= ENV['DATABASE_PASSWORD'] %>
-
-# production: &default
-#   adapter: postgresql
-#   host: localhost
-#   port: 5432
-#   encoding: utf8
-#   pool: 5
-#   database: rails-json-api-prod
-# username: <%= ENV['DATABASE_USER'] %>
-# password: <%= ENV['DATABASE_PASSWORD'] %>
-
+default: &default
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  encoding: utf8
+  pool: 5
+  database: rails-json-api
+  username: <%= ENV['DATABASE_USER'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
 
 development:
-  adapter: postgresql
-  host: db
-  database: todo_docker
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  <<: *default
+  database: rails-json-api-dev
 
 test:
-  adapter: postgresql
-  host: db
-  database: todo_docker_test
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  <<: *default
+  database: rails-json-api-test
+
+
+production:
+  <<: *default
+  database: rails-json-api-prod
+
+
+  
+# docker settings
+
+# development:
+#   adapter: postgresql
+#   host: db
+#   database: todo_docker
+#   username: <%= ENV['POSTGRES_USER'] %>
+#   password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+# test:
+#   adapter: postgresql
+#   host: db
+#   database: todo_docker_test
+#   username: <%= ENV['POSTGRES_USER'] %>
+#   password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+#   has_many :reviews, inverse_of: 'author', foreign_key: 'author_id'
+
+# class Review < ApplicationRecord
+#   belongs_to :author, class_name: 'User'
+# end

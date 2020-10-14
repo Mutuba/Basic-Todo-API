@@ -40,7 +40,7 @@ production:
 #   username: <%= ENV['POSTGRES_USER'] %>
 #   password: <%= ENV['POSTGRES_PASSWORD'] %>
 
-#   has_many :reviews, inverse_of: 'author', foreign_key: 'author_id'
+#   has_many :reviews, inverse_of: :author, foreign_key: 'author_id'
 
 # class Review < ApplicationRecord
 #   belongs_to :author, class_name: 'User'
